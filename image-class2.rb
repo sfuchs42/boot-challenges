@@ -28,37 +28,37 @@ class Image
           if i == 0 || i == arLen - 1
             if k == 0
               @imgAr[i][k + 1] = 1
-              elsif k == arLen - 1
-                @imgAr[i][k - 1] = 1
-              else
-                @imgAr[i][k + 1] = 1
-                @imgAr[i][k - 1] = 1
-              end
-              if i == 0
-                @imgAr[i + 1][k] = 1
-              else
-                @imgAr[i - 1][k] = 1
-              end
-            elsif k == 0 || k == arLen - 1
-              if i == 0
-                @imgAr[i + 1][k] = 1
-              elsif i == arLen - 1
-                @imgAr[i - 1][k] = 1
-              else
-                @imgAr[i + 1][k] = 1
-                @imgAr[i - 1][k] = 1
-              end
-              if k == 0
-                @imgAr[i][k + 1] = 1
-              else
-                @imgAr[i][k - 1] = 1
-              end
+            elsif k == arLen - 1
+              @imgAr[i][k - 1] = 1
+            else
+              @imgAr[i][k + 1] = 1
+              @imgAr[i][k - 1] = 1
+            end
+            if i == 0
+              @imgAr[i + 1][k] = 1
+            else
+              @imgAr[i - 1][k] = 1
+            end
+          elsif k == 0 || k == arLen - 1
+            if i == 0
+              @imgAr[i + 1][k] = 1
+            elsif i == arLen - 1
+              @imgAr[i - 1][k] = 1
             else
               @imgAr[i + 1][k] = 1
               @imgAr[i - 1][k] = 1
-              @imgAr[i][k - 1] = 1
-              @imgAr[i][k + 1] = 1
             end
+            if k == 0
+              @imgAr[i][k + 1] = 1
+            else
+              @imgAr[i][k - 1] = 1
+            end
+          else
+            @imgAr[i + 1][k] = 1
+            @imgAr[i - 1][k] = 1
+            @imgAr[i][k - 1] = 1
+            @imgAr[i][k + 1] = 1
+          end
         end
         puts newAr.inspect
         puts @imgAr[i][k]
@@ -75,10 +75,17 @@ class Image
 end
 
 newImg = [
-    [0,0,0,0],
-    [0,0,1,0],
-    [0,0,0,0],
-    [1,0,0,0]
+    [1,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,1,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0]
 ]
 
 test = Image.new(newImg)
